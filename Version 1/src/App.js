@@ -62,24 +62,21 @@ export default function App() {
 
       <ScrollView>
         {fields.map((field, index) => (
-          <>
-            <View style={styles.inputInnerContainer}>
-              <TextField
-                key={field.id}
-                control={control}
-                name={`${field.name}`}
-                placeHolder={field.placeHolder}
-                type={field.type}
-              />
-              {fields.length > 1 && (
-                <Text
-                  style={styles.deleteButtonStyle}
-                  onPress={() => remove(index)}>
-                  Remove
-                </Text>
-              )}
-            </View>
-          </>
+          <View style={styles.inputInnerContainer} key={field.id}>
+            <TextField
+              control={control}
+              name={`${field.name}`}
+              placeHolder={field.placeHolder}
+              type={field.type}
+            />
+            {fields.length > 1 && (
+              <Text
+                style={styles.deleteButtonStyle}
+                onPress={() => remove(index)}>
+                Remove
+              </Text>
+            )}
+          </View>
         ))}
         {fields.length > 0 && (
           <Button
