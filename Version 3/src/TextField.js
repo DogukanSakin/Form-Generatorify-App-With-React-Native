@@ -2,11 +2,12 @@ import React from 'react';
 import {TextInput} from 'react-native';
 import {useController} from 'react-hook-form';
 import styles from './styles';
-const TextField = ({control, name, type, placeHolder}) => {
+const TextField = ({control, name, type, placeHolder, editable = true}) => {
   const {field} = useController({control, name}); // this field contain value,onchange etc.
   return (
     <TextInput
       {...field}
+      editable={editable}
       secureTextEntry={type === 'Password' ? true : false}
       multiline={type === 'TextArea' ? true : false}
       placeholder={placeHolder}

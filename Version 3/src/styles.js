@@ -162,4 +162,11 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
   },
+
+  // Form result page
+  formResultTitle: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 16,
+  },
 });

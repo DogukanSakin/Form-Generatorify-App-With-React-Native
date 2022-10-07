@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomePage from './Home';
 import FormResultPage from './FormResult';
 import PreviewPage from './Preview';
+import FlashMessage from 'react-native-flash-message';
 export default function Router() {
   const Stack = createNativeStackNavigator();
   return (
@@ -13,6 +14,7 @@ export default function Router() {
         <Stack.Screen name="Preview" component={PreviewPage} />
         <Stack.Screen name="Result" component={FormResultPage} />
       </Stack.Navigator>
+      <FlashMessage position="top" />
     </NavigationContainer>
   );
 }

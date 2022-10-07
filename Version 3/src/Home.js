@@ -4,6 +4,7 @@ import {View, TextInput, Text, ScrollView, Button} from 'react-native';
 import {useForm, useFieldArray} from 'react-hook-form';
 import SelectDropdown from 'react-native-select-dropdown';
 import styles from './styles';
+import {showMessage} from 'react-native-flash-message';
 export default function HomePage({navigation}) {
   const types = ['TextInput', 'TextArea', 'Password', 'Email', 'PhoneNumber'];
   const allPositions = ['Top Left', 'Top Right', 'Bottom Left', 'Bottom Right'];
@@ -24,7 +25,10 @@ export default function HomePage({navigation}) {
       });
       setInputValue('');
     } else {
-      //pozisyon kullanılıyor uyarısı verilecek
+      showMessage({
+        message: 'This position is already use!',
+        type: 'danger',
+      });
     }
   };
 
@@ -76,8 +80,12 @@ export default function HomePage({navigation}) {
           onSelect={selectedItem => {
             if (inputType !== null) {
               handleAppend(selectedItem);
+            } else {
+              showMessage({
+                message: 'Please select a input type!',
+                type: 'danger',
+              });
             }
-            //tür seçilmemiş uyarısı verilecek
           }}
         />
       </View>
@@ -114,7 +122,11 @@ export default function HomePage({navigation}) {
           <Button
             title="Next"
             color="#e83f93"
-            onPress={() => navigation.navigate('Preview', {textFields: fields})}
+            onPress={() =>
+              navigation.navigate('Preview', {
+                textFields: fields,
+              })
+            }
           />
         )}
       </ScrollView>
