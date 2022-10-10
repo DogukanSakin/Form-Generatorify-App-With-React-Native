@@ -169,4 +169,5 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
   },
+  resultInnerContainer: {flex: 1},
 });
