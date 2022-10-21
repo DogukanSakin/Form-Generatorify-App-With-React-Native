@@ -10,7 +10,7 @@
 *.css linguist-detectable=false
 *.cmake linguist-detectable=false
 *.txt linguist-detectable=false
-*Gemfile linguist-vendored
+*/Gemfile linguist-vendored
 *ios/Podfile linguist-vendored
-*Gemfile.lock linguist-vendored
+*/Gemfile.lock linguist-vendored
 *android/gradlew linguist-vendored
